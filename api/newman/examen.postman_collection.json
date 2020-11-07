@@ -47,7 +47,7 @@
 					"script": {
 						"id": "b3702b41-0e55-401f-9b96-6866a154d33b",
 						"exec": [
-							"pm.test(\"PutName Vacio\", function () {\r",
+							"pm.test(\"Update Name sin Info\", function () {\r",
 							"    pm.expect(pm.response.text()).to.include(\"Name was not provided\");\r",
 							"});"
 						],
@@ -58,10 +58,6 @@
 			"request": {
 				"method": "PUT",
 				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": "{\r\n    \"name\":\"Edge\"\r\n}"
-				},
 				"url": {
 					"raw": "{{base_url}}/updateName",
 					"host": [
@@ -167,7 +163,7 @@
 						"exec": [
 							"pm.test(\"Same NameTest\", function () {\r",
 							"    var jsonData = pm.response.json();\r",
-							"    pm.expect(jsonData.name).to.eql(pm.variables.get(\"name\"));\r",
+							"    pm.expect(jsonData.name).to.eql(\"Edge\");\r",
 							"    });"
 						],
 						"type": "text/javascript"
@@ -182,9 +178,12 @@
 					"raw": "{\r\n    \"name\":\"Edge\"\r\n}"
 				},
 				"url": {
-					"raw": "{{base_url}}{{getSameName}}",
+					"raw": "{{base_url}}/sameName",
 					"host": [
-						"{{base_url}}{{getSameName}}"
+						"{{base_url}}"
+					],
+					"path": [
+						"sameName"
 					]
 				}
 			},
