@@ -4,7 +4,7 @@ pipeline {
         stage('Newman Tests') {
         steps {
             sh '''
-            cd api/NEWMAN
+            cd api/newman
             newman run examen.postman_collection.json
                 '''
               }
@@ -22,7 +22,7 @@ pipeline {
       stage('RestAssured Test') {
       steps {
           sh '''
-          cd api/restassured
+          cd api/restAssured
           mvn clean test
           '''
             } 
